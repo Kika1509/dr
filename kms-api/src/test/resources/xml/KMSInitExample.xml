@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<KmsResponse Version="1.0.0" xmlns="http://www.kapsch.net/mcptt/xml/KmsInterface" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:ns3="http://www.w3.org/2001/04/xmlenc#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.kapsch.net/mcptt/xml/KmsInterface KmsInterface_XMLSchema.xsd">
+	<KmsUri>kms.example.org</KmsUri>
+	<UserUri>test4@example.org</UserUri>
+	<Time>2018-02-26T09:57:53.627</Time>
+	<KmsId>kms.example.org</KmsId>
+	<ClientReqUrl>/keymanagement/identity/v1/init</ClientReqUrl>
+	<KmsMessage>
+		<KmsInit Version="1.0.0">
+			<KmsCertificate Role="Root" Version="1.1.0">
+				<KmsUri>kms.example.org</KmsUri>
+				<UserIdFormat>2</UserIdFormat>
+				<UserKeyPeriod>2419200</UserKeyPeriod>
+				<UserKeyOffset>0</UserKeyOffset>
+				<PubEncKey>044A42095E2DBEF7C804F303DDE0AB3B1449ACBAC68B9FB48DD80E777B937E01BE665F9397C3149EF0EF5FD6E902592C5C136542FAFF74475F9AB68B450549E83AFA214350DDA752D8AE8E8A96999E08B01637141B03997DAE0C7091B0D96C3DE405D58538E029997D8B616E956F412023F2E239C61068136BB07524F7D8644D0C13E4EA1349B7D3DED7C04CD25B809CF82784AC6685C9AD73CF8EA667D9794A41C1C83A37E934768D57D760D44F30EF784F216393C3E2F9AB68099BC4AA82AD29C8DA090B1AA95D493FB7C19C39F1E869C95FE0950CA53A68EE330EDFC9E055D62202CC0419282EE96C30C9B5239E832056FC112EE5CDDE811D5AF523123DE7C6</PubEncKey>
+				<PubAuthKey>042CFB4C1003B36E2F7B211E9BC28CEBE2B41A0CCD4EBEA6F4EA2A4EFFD4D7144204972AECF92453255AC6E1ABEB21852F100C88EF87803F93F5A210A01000322B</PubAuthKey>
+			</KmsCertificate>
+		</KmsInit>
+	</KmsMessage>
+</KmsResponse>

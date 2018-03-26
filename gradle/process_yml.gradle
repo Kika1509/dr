@@ -1,0 +1,29 @@
+def profiles = ''
+
+if (project.hasProperty('prod')) {
+    profiles = 'prod'
+    if (project.hasProperty('swagger')) {
+        profiles += ',swagger'
+    }
+} else {
+    profiles = 'dev'
+}
+
+println("Replace yml project.version=$version")
+println("Replace yml spring.profiles.active=$profiles")
+
+processResources {
+    filesMatching('**/application.yml') {
+        filter {
+            it.replace('#spring.profiles.active#', profiles)
+        }
+    }
+    filesMatching('**/bootstrap.yml') {
+        filter {
+            it.replace('#spring.profiles.active#', profiles)
+        }
+        filter {
+            it.replace('#project.version#', version)
+        }
+    }
+}

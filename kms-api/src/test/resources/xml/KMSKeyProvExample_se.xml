@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SignedKmsResponse xmlns="TOBEDEFINED"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
+	xmlns:se="TOBEDEFINED" xsi:schemaLocation="TOBEDEFINED SE_KmsInterface_XMLSchema.xsd"
+	Id="xmldoc">
+	<KmsResponse xmlns="TOBEDEFINED" Version="1.0.0">
+		<KmsUri>kms.example.org</KmsUri>
+		<UserUri>user@example.org</UserUri>
+		<Time>2014-01-26T10:07:14</Time>
+		<KmsId>KMSProvider12345</KmsId>
+		<ClientReqUrl>http://kms.example.org/keymanagement/identity/v1/keyprov
+		</ClientReqUrl>
+		<KmsMessage>
+			<KmsKeyProv Version="1.0.0" xsi:type="se:KmsKeyProvTkType">
+				<KmsKeySet Version="1.1.0">
+					<KmsUri>kms.example.org</KmsUri>
+					<CertUri>cert1.kms.example.org</CertUri>
+					<Issuer>www.example.org</Issuer>
+					<UserUri>user@example.org</UserUri>
+					<UserID>0123456789ABCDEF0123456789ABCDEF</UserID>
+					<ValidFrom>2015-12-30T00:00:00</ValidFrom>
+					<ValidTo>2016-03-29T23:59:59</ValidTo>
+					<KeyPeriodNo>1514</KeyPeriodNo>
+					<Revoked>false</Revoked>
+					<UserDecryptKey xsi:type="se:EncKeyContentType">
+						<EncryptedKey xmlns="http://www.w3.org/2001/04/xmlenc#">
+							<EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#kw-aes256" />
+							<ds:KeyInfo>
+								<ds:KeyName>
+									tk.12.user@example.org
+								</ds:KeyName>
+							</ds:KeyInfo>
+							<CipherData>
+								<CipherValue>DEADBEEF</CipherValue>
+							</CipherData>
+						</EncryptedKey>
+					</UserDecryptKey>
+					<UserSigningKeySSK xsi:type="se:EncKeyContentType">
+						<EncryptedKey xmlns="http://www.w3.org/2001/04/xmlenc#">
+							<EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#kw-aes256" />
+							<ds:KeyInfo>
+								<ds:KeyName>
+									tk.12.user@example.org
+								</ds:KeyName>
+							</ds:KeyInfo>
+							<CipherData>
+								<CipherValue>DEADBEEF</CipherValue>
+							</CipherData>
+						</EncryptedKey>
+					</UserSigningKeySSK>
+					<UserPubTokenPVT xsi:type="se:EncKeyContentType">
+						<EncryptedKey xmlns="http://www.w3.org/2001/04/xmlenc#">
+							<EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#kw-aes256" />
+							<ds:KeyInfo>
+								<ds:KeyName>
+									tk.12.user@example.org
+								</ds:KeyName>
+							</ds:KeyInfo>
+							<CipherData>
+								<CipherValue>DEADBEEF</CipherValue>
+							</CipherData>
+						</EncryptedKey>
+					</UserPubTokenPVT>
+				</KmsKeySet>
+				<KmsKeySet Version="1.1.0">
+					<KmsUri>kms.example.org</KmsUri>
+					<CertUri>cert1.kms.example.org</CertUri>
+					<Issuer>www.example.org</Issuer>
+					<UserUri>user.psuedonym@example.org</UserUri>
+					<UserID>0011223344556677889900AABBCCDDEEFF</UserID>
+					<ValidFrom>2015-12-30T00:00:00</ValidFrom>
+					<ValidTo>2016-03-29T23:59:59</ValidTo>
+					<ValidTo>2016-03-29T23:59:59</ValidTo>
+					<KeyPeriodNo>1514</KeyPeriodNo>
+					<Revoked>false</Revoked>
+					<UserDecryptKey xsi:type="se:EncKeyContentType">
+						<EncryptedKey xmlns="http://www.w3.org/2001/04/xmlenc#">
+							<EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#kw-aes256" />
+							<ds:KeyInfo>
+								<ds:KeyName>
+									tk.12.user@example.org
+								</ds:KeyName>
+							</ds:KeyInfo>
+							<CipherData>
+								<CipherValue>DEADBEEF</CipherValue>
+							</CipherData>
+						</EncryptedKey>
+					</UserDecryptKey>
+					<UserSigningKeySSK xsi:type="se:EncKeyContentType">
+						<EncryptedKey xmlns="http://www.w3.org/2001/04/xmlenc#">
+							<EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#kw-aes256" />
+							<ds:KeyInfo>
+								<ds:KeyName>
+									tk.12.user@example.org
+								</ds:KeyName>
+							</ds:KeyInfo>
+							<CipherData>
+								<CipherValue>DEADBEEF</CipherValue>
+							</CipherData>
+						</EncryptedKey>
+					</UserSigningKeySSK>
+					<UserPubTokenPVT xsi:type="se:EncKeyContentType">
+						<EncryptedKey xmlns="http://www.w3.org/2001/04/xmlenc#">
+							<EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#kw-aes256" />
+							<ds:KeyInfo>
+								<ds:KeyName>
+									tk.12.user@example.org
+								</ds:KeyName>
+							</ds:KeyInfo>
+							<CipherData>
+								<CipherValue>DEADBEEF</CipherValue>
+							</CipherData>
+						</EncryptedKey>
+					</UserPubTokenPVT>
+				</KmsKeySet>
+				<NewTransportKey xmlns="TOBEDEFINED">
+					<EncryptedKey xmlns="http://www.w3.org/2001/04/xmlenc#"
+						Type="http://www.w3.org/2001/04/xmlenc#EncryptedKey">
+						<EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#kw-aes256" />
+						<ds:KeyInfo>
+							<ds:KeyName>
+								tk.12.user@example.org
+							</ds:KeyName>
+						</ds:KeyInfo>
+						<CipherData>
+							<CipherValue>DEADBEEF</CipherValue>
+						</CipherData>
+						<CarriedKeyName>tk.13.user@example.org</CarriedKeyName>
+					</EncryptedKey>
+				</NewTransportKey>
+			</KmsKeyProv>
+		</KmsMessage>
+	</KmsResponse>
+	<Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+		<SignedInfo>
+			<CanonicalizationMethod
+				Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" />
+			<SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#hmac-sha256">
+				<HMACOutputLength>128</HMACOutputLength>
+			</SignatureMethod>
+			<Reference URI="#xmldoc">
+				<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" />
+				<DigestValue>nnnn</DigestValue>
+			</Reference>
+		</SignedInfo>
+		<SignatureValue>DEADBEEF</SignatureValue>
+		<KeyInfo>
+			<KeyName>tk.12.user@example.org</KeyName>
+		</KeyInfo>
+	</Signature>
+</SignedKmsResponse>
+            

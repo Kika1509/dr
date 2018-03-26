@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kmc-api/kmc-api.iml" filepath="$PROJECT_DIR$/.idea/modules/kmc-api/kmc-api.iml" group="kmc-api" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kmc-api/kmc-api_main.iml" filepath="$PROJECT_DIR$/.idea/modules/kmc-api/kmc-api_main.iml" group="kmc-api" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kmc-api/kmc-api_test.iml" filepath="$PROJECT_DIR$/.idea/modules/kmc-api/kmc-api_test.iml" group="kmc-api" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kms.iml" filepath="$PROJECT_DIR$/.idea/modules/kms.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kms-api/kms-api.iml" filepath="$PROJECT_DIR$/.idea/modules/kms-api/kms-api.iml" group="kms-api" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kms-api/kms-api_main.iml" filepath="$PROJECT_DIR$/.idea/modules/kms-api/kms-api_main.iml" group="kms-api" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kms-api/kms-api_test.iml" filepath="$PROJECT_DIR$/.idea/modules/kms-api/kms-api_test.iml" group="kms-api" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kms-cli/kms-cli.iml" filepath="$PROJECT_DIR$/.idea/modules/kms-cli/kms-cli.iml" group="kms-cli" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kms-cli/kms-cli_main.iml" filepath="$PROJECT_DIR$/.idea/modules/kms-cli/kms-cli_main.iml" group="kms-cli" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kms-cli/kms-cli_test.iml" filepath="$PROJECT_DIR$/.idea/modules/kms-cli/kms-cli_test.iml" group="kms-cli" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kms-core/kms-core.iml" filepath="$PROJECT_DIR$/.idea/modules/kms-core/kms-core.iml" group="kms-core" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kms-core/kms-core_main.iml" filepath="$PROJECT_DIR$/.idea/modules/kms-core/kms-core_main.iml" group="kms-core" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kms-core/kms-core_test.iml" filepath="$PROJECT_DIR$/.idea/modules/kms-core/kms-core_test.iml" group="kms-core" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kms-int-test/kms-int-test.iml" filepath="$PROJECT_DIR$/.idea/modules/kms-int-test/kms-int-test.iml" group="kms-int-test" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kms-int-test/kms-int-test_main.iml" filepath="$PROJECT_DIR$/.idea/modules/kms-int-test/kms-int-test_main.iml" group="kms-int-test" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kms-int-test/kms-int-test_test.iml" filepath="$PROJECT_DIR$/.idea/modules/kms-int-test/kms-int-test_test.iml" group="kms-int-test" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kms-package-jar/kms-package-jar.iml" filepath="$PROJECT_DIR$/.idea/modules/kms-package-jar/kms-package-jar.iml" group="kms-package-jar" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kms-package-jar/kms-package-jar_main.iml" filepath="$PROJECT_DIR$/.idea/modules/kms-package-jar/kms-package-jar_main.iml" group="kms-package-jar" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kms-package-jar/kms-package-jar_test.iml" filepath="$PROJECT_DIR$/.idea/modules/kms-package-jar/kms-package-jar_test.iml" group="kms-package-jar" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kms-package-war/kms-package-war.iml" filepath="$PROJECT_DIR$/.idea/modules/kms-package-war/kms-package-war.iml" group="kms-package-war" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kms-package-war-wildfly/kms-package-war-wildfly.iml" filepath="$PROJECT_DIR$/.idea/modules/kms-package-war-wildfly/kms-package-war-wildfly.iml" group="kms-package-war-wildfly" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kms-package-war-wildfly/kms-package-war-wildfly_main.iml" filepath="$PROJECT_DIR$/.idea/modules/kms-package-war-wildfly/kms-package-war-wildfly_main.iml" group="kms-package-war-wildfly" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kms-package-war-wildfly/kms-package-war-wildfly_test.iml" filepath="$PROJECT_DIR$/.idea/modules/kms-package-war-wildfly/kms-package-war-wildfly_test.iml" group="kms-package-war-wildfly" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kms-package-war/kms-package-war_main.iml" filepath="$PROJECT_DIR$/.idea/modules/kms-package-war/kms-package-war_main.iml" group="kms-package-war" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kms-package-war/kms-package-war_test.iml" filepath="$PROJECT_DIR$/.idea/modules/kms-package-war/kms-package-war_test.iml" group="kms-package-war" />
+    </modules>
+  </component>
+</project>

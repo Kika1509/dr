@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ds=
+    "http://www.w3.org/2000/09/xmldsig#" xmlns:xenc="http://www.w3.org/2001/04/xmlenc#"
+            xmlns:ikms="kms" xmlns="kmsEx" targetNamespace="kmsEx" elementFormDefault
+                ="qualified" version="1.0">
+    <xsd:import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="xsd/xmldsig-core-schema.xsd"/>
+
+    <xsd:import namespace="http://www.w3.org/2001/04/xmlenc#" schemaLocation="xsd/XmlEncryption_XMLSchema.xsd"/>
+    <xsd:import namespace="kms" schemaLocation="xsd/KmsInterface_XMLSchema.xsd"/>
+
+
+    <xsd:element type="EncKeyContentType" name="NewTransportKey"/>
+    <xsd:element type="SignedKmsResponseType" name="SignedKmsResponse"/>
+    <xsd:element name="SignedKmsRequest" type="SignedKmsRequestType"/>
+    <xsd:complexType name="EncKeyContentType">
+        <xsd:complexContent>
+            <xsd:restriction base="ikms:KeyContentType">
+                <xsd:sequence>
+                    <xsd:element ref="xenc:EncryptedKey" maxOccurs="1" minOccurs="1"/>
+                </xsd:sequence>
+            </xsd:restriction>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:complexType name="SignedKmsResponseType">
+        <xsd:sequence>
+            <xsd:element ref="ikms:KmsResponse"/>
+            <xsd:element ref="ds:Signature" minOccurs="0"/>
+        </xsd:sequence>
+        <xsd:attribute name="Id" type="xsd:string"/>
+        <xsd:anyAttribute namespace="##other" processContents="lax"/>
+    </xsd:complexType>
+    <xsd:complexType name="KmsInitTkType">
+        <xsd:complexContent>
+            <xsd:restriction base="ikms:KmsInitType">
+                <xsd:sequence>
+                    <xsd:choice maxOccurs="1">
+                        <xsd:element ref="ikms:SignedKmsCertificate"/>
+                        <xsd:element ref="ikms:KmsCertificate"/>
+                    </xsd:choice>
+                    <!--<xsd:element type="EncKeyContentType" name="NewTransportKey" maxOccurs="1"/>-->
+                    <!-- Can extend in another namespace - for more types of communication-->
+                    <xsd:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+                </xsd:sequence>
+            </xsd:restriction>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:complexType name="KmsKeyProvTkType">
+        <xsd:complexContent>
+            <xsd:restriction base="ikms:KmsKeyProvType">
+                <xsd:sequence>
+                    <xsd:element ref="ikms:KmsKeySet" minOccurs="0" maxOccurs="unbounded"/>
+                    <xsd:element type="EncKeyContentType" name="NewTransportKey" minOccurs="0"
+                                 maxOccurs="unbounded"/>
+                    <!-- Can extend in another namespace - for more types of communication-->
+                    <xsd:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+                </xsd:sequence>
+            </xsd:restriction>
+        </xsd:complexContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="SignedKmsRequestType">
+        <xsd:sequence>
+            <xsd:element name="KmsRequest" type="KmsRequestType"/>
+            <xsd:element ref="ds:Signature"/>
+        </xsd:sequence>
+        <xsd:attribute name="Id" type="xsd:string"/>
+        <xsd:anyAttribute namespace="##other" processContents="lax"/>
+    </xsd:complexType>
+    <xsd:complexType name="KmsRequestType">
+        <xsd:sequence>
+            <xsd:element type="xsd:anyURI" name="UserUri" maxOccurs="1"/>
+            <xsd:element type="xsd:anyURI" name="KmsUri" maxOccurs="1"/>
+            <xsd:element type="xsd:dateTime" name="Time" maxOccurs="1"/>
+            <xsd:element type="xsd:string" name="ClientId" minOccurs="0" maxOccurs="1"/>
+            <xsd:element type="xsd:string" name="DeviceId" minOccurs="0" maxOccurs="1"/>
+            <xsd:element type="xsd:anyURI" name="ClientReqUrl" maxOccurs="1"/>
+            <xsd:element type="ikms:ErrorType" name="ClientError" minOccurs="0" maxOccurs="1"/>
+            <!-- Can extend in another namespace - for more types of communication-->
+            <xsd:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+        <xsd:attribute name="Id" type="xsd:string"/>
+        <xsd:attribute name="Version" type="xsd:string" fixed="1.0.0"/>
+        <xsd:anyAttribute namespace="##other" processContents="lax"/>
+    </xsd:complexType>
+</xsd:schema>

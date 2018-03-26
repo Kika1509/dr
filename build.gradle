@@ -1,0 +1,98 @@
+
+buildscript {
+    repositories {
+        mavenLocal()
+
+        maven {
+            url "${repoUrl}"
+        }
+    }
+
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:$spring_boot_version"
+        classpath "net.ltgt.gradle:gradle-apt-plugin:0.14"
+        classpath "io.spring.gradle:propdeps-plugin:0.0.9.RELEASE"
+        classpath "io.spring.gradle:dependency-management-plugin:1.0.4.RELEASE"
+        classpath "org.jfrog.buildinfo:build-info-extractor-gradle:${jfrog_artifactory_gradle_plugin_version}"
+        classpath "gradle.plugin.nl.javadude.gradle.plugins:license-gradle-plugin:0.14.0"
+        classpath "com.adarshr:gradle-test-logger-plugin:1.1.2"
+        classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.6.2"
+    }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '4.6'
+}
+
+def coreProjects = [
+    project(':kms-core')
+]
+
+def apiProjects = [
+    project(':kmc-api'),
+    project(':kms-api')
+]
+
+def packageProjects = [
+    project(':kms-cli'),
+    project(':kms-package-jar'),
+    project(':kms-package-war'),
+    project(':kms-package-war-wildfly')
+]
+
+def artifactoryProjects = apiProjects
+
+
+subprojects {
+    apply plugin: 'maven'
+    apply plugin: 'propdeps'
+    apply plugin: 'io.spring.dependency-management'
+    apply plugin: 'checkstyle'
+    apply plugin: 'com.github.hierynomus.license-report'
+
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+
+    group = 'net.kapsch.kms'
+    status = version_suffix
+    if (project.hasProperty('versionSuffix')) {
+        status = project.versionSuffix
+    }
+    version = "$project_version-$status"
+
+    checkstyle {
+        configFile = rootProject.file('config/checkstyle/checkstyle.xml')
+        configProperties.configDir = configFile.parentFile
+        toolVersion = '6.19'
+    }
+
+    repositories {
+        mavenLocal()
+
+        maven {
+            url "${repoUrl}"
+        }
+    }
+
+    dependencyManagement {
+        dependencies {
+            dependency "org.hibernate:hibernate-core:${hibernate_version}"
+            dependency "org.hibernate:hibernate-validator:${hibernate_validator_version}"
+            dependency "org.springframework.security:spring-security-jwt:${spring_security_jwt}"
+            dependency "org.flywaydb:flyway-core:${flywaydb_version}"
+            dependency "org.springframework.security.oauth:spring-security-oauth2:${spring_security_oauth2}"
+        }
+        imports {
+            mavenBom "org.springframework.boot:spring-boot-dependencies:$spring_boot_version"
+            mavenBom "io.projectreactor:reactor-bom:$reactor_version"
+        }
+    }
+
+    clean {
+        delete "target"
+    }
+}
+
+configure(artifactoryProjects) {
+    apply from: "$rootDir/gradle/maven-publish.gradle"
+}

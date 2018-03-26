@@ -1,0 +1,16 @@
+#Organize Import Order
+#Wed Mar 13 08:31:49 CET 2013
+13=\#
+12=net.kapsch
+11=hr.kapsch
+10=springfox
+9=org
+8=okhttp3
+7=net
+6=io
+5=info
+4=cucumber
+3=com
+2=ch
+1=javax
+0=java

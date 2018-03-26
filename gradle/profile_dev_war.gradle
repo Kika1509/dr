@@ -1,0 +1,3 @@
+war {
+    webAppDirName = 'src/main/webapp/'
+}

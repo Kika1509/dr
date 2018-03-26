@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<KmsResponse Version="1.0.0" xsi:schemaLocation="http://www.kapsch.net/mcptt/xml/KmsInterface KmsInterface_XMLSchema.xsd" xmlns="http://www.kapsch.net/mcptt/xml/KmsInterface" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <KmsUri>kms.example.org</KmsUri>
+    <UserUri>user@example.org</UserUri>
+    <Time>2014-01-26T10:07:14</Time>
+    <KmsId>KMSProvider12345</KmsId>
+    <ClientReqUrl>http://kms.example.org/keymanagement/identity/v1/init</ClientReqUrl>
+    <KmsMessage>
+        <KmsInit Version="1.0.0">
+            <KmsCertificate Version="1.1.0" Role="Root">
+                <KmsUri>kms.example.org</KmsUri>
+                <CertUri>cert1.kms.example.org</CertUri>
+                <Issuer>www.example.org</Issuer>
+                <ValidFrom>2000-01-26T00:00:00</ValidFrom>
+                <ValidTo>2025-01-26T23:59:59</ValidTo>
+                <Revoked>false</Revoked>
+                <UserIdFormat>2</UserIdFormat>
+                <UserKeyPeriod>2592000</UserKeyPeriod>
+                <UserKeyOffset>0</UserKeyOffset>
+                <PubEncKey>029A2F</PubEncKey>
+                <PubAuthKey>029A2F</PubAuthKey>
+                <ParameterSet>1</ParameterSet>
+                <KmsDomainList>
+                    <KmsDomain>sec1.example.org</KmsDomain>
+                    <KmsDomain>sec2.example.org</KmsDomain>
+                </KmsDomainList>
+            </KmsCertificate>
+        </KmsInit>
+    </KmsMessage>
+</KmsResponse>
+

@@ -1,0 +1,52 @@
+apply plugin: "com.adarshr.test-logger"
+
+testlogger {
+    slowThreshold 5000
+    showExceptions true
+}
+
+test {
+    include '**/*UnitTest*'
+    include '**/*IntTest*'
+
+//    maxParallelForks = Runtime.runtime.availableProcessors().intdiv(2) ?: 1
+
+    // uncomment if the tests reports are not generated
+    // ignoreFailures true
+    reports.html.enabled = false
+}
+
+task integrationTest(type: Test) {
+    include '**/*IntTest*'
+
+    // uncomment if the tests reports are not generated
+    // ignoreFailures true
+    reports.html.enabled = false
+}
+
+task cucumberTest(type: Test) {
+    include '**/CucumberTest*'
+
+    // uncomment if the tests reports are not generated
+    // ignoreFailures true
+    reports.html.enabled = false
+}
+
+task systemTest(type: Test) {
+    include '**/SystemTest*'
+    systemProperties System.properties
+
+    // uncomment if the tests reports are not generated
+    // ignoreFailures true
+    reports.html.enabled = false
+}
+
+test.finalizedBy(cucumberTest)
+
+task testReport(type: TestReport) {
+    destinationDir = file("$buildDir/reports/tests")
+    reportOn test
+    reportOn cucumberTest
+}
+
+cucumberTest.finalizedBy(testReport)

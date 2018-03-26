@@ -1,0 +1,41 @@
+<jaxb:bindings version="2.1" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+               xmlns:xs="http://www.w3.org/2001/XMLSchema"
+               xmlns:simplify="http://jaxb2-commons.dev.java.net/basic/simplify"
+               xmlns:namespace="http://jaxb2-commons.dev.java.net/namespace-prefix"
+               jaxb:extensionBindingPrefixes="simplify">
+
+    <jaxb:bindings schemaLocation="KmsInterface_XMLSchema.xsd"
+                   node="xs:complexType[@name='KmsCertCacheType']/xs:sequence/xs:choice">
+        <simplify:as-element-property/>
+    </jaxb:bindings>
+
+    <jaxb:bindings schemaLocation="xmldsig-core-schema.xsd"
+                   node="xs:complexType[@name='X509DataType']">
+        <simplify:property name="x509IssuerSerialOrX509SKIOrX509SubjectName">
+            <simplify:as-element-property/>
+        </simplify:property>
+    </jaxb:bindings>
+
+    <jaxb:bindings schemaLocation="KmsInterface_XMLSchema.xsd">
+        <!-- Additional @XmlNs prefix declarations in package-info.java to take
+            effect for this schema/package -->
+        <namespace:prefix name="ds"
+                          namespaceURI="http://www.w3.org/2000/09/xmldsig#"/>
+        <namespace:prefix name=""
+                          namespaceURI="http://www.kapsch.net/mcptt/xml/KmsInterface"/>
+    </jaxb:bindings>
+
+    <!--<jaxb:bindings schemaLocation="KmsInterfaceSecurityExtension_XMLSchema.xsd">-->
+        <!--&lt;!&ndash; Additional @XmlNs prefix declarations in package-info.java to take-->
+            <!--effect for this schema/package &ndash;&gt;-->
+        <!--<namespace:prefix name="ds"-->
+                          <!--namespaceURI="http://www.w3.org/2000/09/xmldsig#"/>-->
+        <!--<namespace:prefix name="ikms"-->
+                          <!--namespaceURI="kms"/>-->
+        <!--<namespace:prefix name="xenc"-->
+                          <!--namespaceURI="http://www.w3.org/2001/04/xmlenc#"/>-->
+        <!--<namespace:prefix name=""-->
+                          <!--namespaceURI="kmsEx"/>-->
+    <!--</jaxb:bindings>-->
+
+</jaxb:bindings>
