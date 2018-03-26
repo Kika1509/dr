@@ -3,11 +3,24 @@
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
     <output url="file://$MODULE_DIR$/../../../kms-api/out/production/classes" />
     <exclude-output />
+    <content url="file://$MODULE_DIR$/../../../kms-api/src/generated">
+      <sourceFolder url="file://$MODULE_DIR$/../../../kms-api/src/generated/java" isTestSource="false" />
+    </content>
     <content url="file://$MODULE_DIR$/../../../kms-api/src/main">
       <sourceFolder url="file://$MODULE_DIR$/../../../kms-api/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../../kms-api/src/main/resources" type="java-resource" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Gradle: org.apache.santuario:xmlsec:2.1.0" level="project" />
+    <orderEntry type="library" name="Gradle: org.bouncycastle:bcpkix-jdk15on:1.55" level="project" />
+    <orderEntry type="library" name="Gradle: org.bouncycastle:bcprov-jdk15on:1.55" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.zxing:core:3.3.0" level="project" />
+    <orderEntry type="library" name="Gradle: commons-net:commons-net:3.6" level="project" />
+    <orderEntry type="library" name="Gradle: org.slf4j:slf4j-api:1.7.25" level="project" />
+    <orderEntry type="library" name="Gradle: org.codehaus.woodstox:woodstox-core-asl:4.4.1" level="project" />
+    <orderEntry type="library" name="Gradle: commons-codec:commons-codec:1.11" level="project" />
+    <orderEntry type="library" name="Gradle: javax.xml.stream:stax-api:1.0-2" level="project" />
+    <orderEntry type="library" name="Gradle: org.codehaus.woodstox:stax2-api:3.1.4" level="project" />
   </component>
 </module>

@@ -13,10 +13,6 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
-import org.apache.commons.net.ntp.TimeStamp;
-import org.bouncycastle.util.encoders.Hex;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import net.kapsch.kms.api.DefaultMarshallerService;
 import net.kapsch.kms.api.KmsCertCacheType;
@@ -24,6 +20,9 @@ import net.kapsch.kms.api.KmsInitType;
 import net.kapsch.kms.api.KmsKeyProvType;
 import net.kapsch.kms.api.KmsResponseType;
 import net.kapsch.kms.api.MarshallerService;
+import org.apache.commons.net.ntp.TimeStamp;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 public class ApiService {
