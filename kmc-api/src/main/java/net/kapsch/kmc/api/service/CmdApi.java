@@ -32,29 +32,9 @@ public class CmdApi {
 
 	private static final String CMD_LINE_SYNTAX = "KMC";
 
-	private static final String ARG_KMS_URL_SHORT = "net/kapsch/kms-api/service";
-	private static final String ARG_KMS_URL_LONG = "kms-url";
-	private static final String ARG_KMS_URL_DESCRIPTION = "KMS server URL";
-
-	private static final String ARG_KAAS_URL_SHORT = "kaas";
-	private static final String ARG_KAAS_URL_LONG = "kaas-url";
-	private static final String ARG_KAAS_URL_DESCRIPTION = "KAAS server URL";
-
-	private static final String ARG_KAAS_REDIRECT_URL_SHORT = "kaasRe";
-	private static final String ARG_KAAS_REDIRECT_URL_LONG = "kaas-url-redirect";
-	private static final String ARG_KAAS_REDIRECT_URL_DESCRIPTION = "KAAS server redirect URL";
-
 	private static final String ARG_ACCESS_TOKEN_SHORT = "ac";
 	private static final String ARG_ACCESS_TOKEN_LONG = "access-token";
 	private static final String ARG_ACCESS_TOKEN_DESCRIPTION = "Access Token";
-
-	private static final String ARG_SESSION_ID_SHORT = "sid";
-	private static final String ARG_SESSION_ID_LONG = "session-id";
-	private static final String ARG_SESSION_ID_DESCRIPTION = "Session Identifier";
-
-	private static final String ARG_CLIENT_ID_SHORT = "cid";
-	private static final String ARG_CLIENT_ID_LONG = "client-id";
-	private static final String ARG_CLIENT_ID_DESCRIPTION = "Client Identifier";
 
 	private static final String ARG_ID_SHORT = "id";
 	private static final String ARG_ID_LONG = "mcptt-id";
@@ -163,11 +143,7 @@ public class CmdApi {
 			errHandler(e.getMessage());
 		}
 
-		resolveOptionalParameters();
-
-		this.client = new KmcApp().init(this.kmsUrl, this.kaasUrl, this.kaasRedirectUrl,
-				get(ARG_ACCESS_TOKEN_SHORT), get(ARG_SESSION_ID_SHORT),
-				get(ARG_CLIENT_ID_SHORT), get(ARG_ID_SHORT));
+		this.client = new KmcApp().init(get(ARG_ACCESS_TOKEN_SHORT), get(ARG_ID_SHORT));
 
 		this.client.init();
 
@@ -201,18 +177,6 @@ public class CmdApi {
 			}
 		}
 
-	}
-
-	private void resolveOptionalParameters() {
-		if (has(ARG_KAAS_URL_SHORT)) {
-			this.kaasUrl = get(ARG_KAAS_URL_SHORT);
-		}
-		if (has(ARG_KAAS_REDIRECT_URL_SHORT)) {
-			this.kaasRedirectUrl = get(ARG_KAAS_REDIRECT_URL_SHORT);
-		}
-		if (has(ARG_KMS_URL_SHORT)) {
-			this.kmsUrl = get(ARG_KMS_URL_SHORT);
-		}
 	}
 
 	private String get(String option) {
@@ -250,29 +214,9 @@ public class CmdApi {
 	 * General options for establishing connection with KMS and KAAS servers.
 	 */
 	private void addGeneralOptions() {
-		Option kmsUrl = new Option(ARG_KMS_URL_SHORT, ARG_KMS_URL_LONG, true,
-				ARG_KMS_URL_DESCRIPTION);
-		this.options.addOption(kmsUrl);
-
-		Option kaasUrl = new Option(ARG_KAAS_URL_SHORT, ARG_KAAS_URL_LONG, true,
-				ARG_KAAS_URL_DESCRIPTION);
-		this.options.addOption(kaasUrl);
-
-		Option kaasRedirectUrl = new Option(ARG_KAAS_REDIRECT_URL_SHORT,
-				ARG_KAAS_REDIRECT_URL_LONG, true, ARG_KAAS_REDIRECT_URL_DESCRIPTION);
-		this.options.addOption(kaasRedirectUrl);
-
 		Option accessToken = new Option(ARG_ACCESS_TOKEN_SHORT, ARG_ACCESS_TOKEN_LONG,
 				true, ARG_ACCESS_TOKEN_DESCRIPTION);
 		this.options.addOption(accessToken);
-
-		Option sessionId = new Option(ARG_SESSION_ID_SHORT, ARG_SESSION_ID_LONG, true,
-				ARG_SESSION_ID_DESCRIPTION);
-		this.options.addOption(sessionId);
-
-		Option clientId = new Option(ARG_CLIENT_ID_SHORT, ARG_CLIENT_ID_LONG, true,
-				ARG_CLIENT_ID_DESCRIPTION);
-		this.options.addOption(clientId);
 
 		Option mcpttId = new Option(ARG_ID_SHORT, ARG_ID_LONG, true, ARG_ID_DESCRIPTION);
 		mcpttId.setRequired(true);

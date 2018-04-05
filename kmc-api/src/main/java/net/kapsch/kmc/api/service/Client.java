@@ -12,12 +12,13 @@ import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
+import javax.xml.bind.JAXBException;
+import javax.xml.stream.XMLStreamException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
 
-import net.kapsch.kmc.api.service.authorization.Authorization;
 import net.kapsch.kmc.api.service.mikey.GenericId;
 import net.kapsch.kmc.api.service.mikey.MikeyException;
 import net.kapsch.kmc.api.service.mikey.MikeySakkeIMessage;
@@ -87,8 +88,6 @@ public class Client {
 	 */
 	private UserKeyData userKeys;
 
-	private Authorization authorization;
-
 	/**
 	 * Client constructor, sets the client's field variables. Access Token is permanent
 	 * and already set in ApiService object and because of that this is primary used for
@@ -103,45 +102,23 @@ public class Client {
 	}
 
 	/**
-	 * Client constructor, sets the client's field variables. Access Token is changing
-	 * over time and it's provisioned by KAAS with Authorization class
-	 *
-	 * @param mcpttId - client's Mcptt Id
-	 * @param apiService - service for communication with kms
-	 * @param authorization - service for communication with kaas
-	 */
-	public Client(final String mcpttId, final ApiService apiService,
-			final Authorization authorization) {
-		this.mcpttId = mcpttId;
-		this.apiService = apiService;
-		this.authorization = authorization;
-	}
-
-	/**
 	 * Initialization method of client. It must be called before any other action because
 	 * it fetches keys from KMS.
 	 */
-	public void init() {
+	public void init() throws JAXBException, IOException, XMLStreamException {
 		initClient();
-		// TODO add logic to check if key is valid and how long in current interval, load
-		// new key for new interval
 		keyProvClient();
 	}
 
 	/**
 	 * Method for key provisioning of domain keys for user.
 	 */
-	private void initClient() {
+	private void initClient() throws JAXBException, IOException, XMLStreamException {
 		KmsResponseType initResponse = null;
 
 		int times = 0;
 		while (times != CONN_COUNT) {
 			try {
-				initResponse = this.apiService.initialize();
-				break;
-			}
-			catch (KaasAuthorizationException e) {
-				refreshAccessToken();
 				initResponse = this.apiService.initialize();
 				break;
 			}
@@ -163,18 +140,13 @@ public class Client {
 	/**
 	 * Method for key provisioning of user keys.
 	 */
-	private void keyProvClient() {
+	private void keyProvClient() throws JAXBException, IOException, XMLStreamException {
 		KmsResponseType keyProvResponse = null;
 
 		int times = 0;
 		while (times != CONN_COUNT) {
 			try {
-				keyProvResponse = this.apiService.keyProvision(null, null);
-				break;
-			}
-			catch (KaasAuthorizationException e) {
-				refreshAccessToken();
-				keyProvResponse = this.apiService.keyProvision(null, null);
+				keyProvResponse = this.apiService.keyProvision();
 				break;
 			}
 			catch (KmsServerInternalException e) {
@@ -191,21 +163,6 @@ public class Client {
 				new OctetString(kmsKeySetType.getUserSigningKeySSK().getValue()));
 	}
 
-	private void refreshAccessToken() {
-		String refreshedAccessToken = null;
-		int times = 0;
-		while (times != CONN_COUNT) {
-			try {
-				refreshedAccessToken = this.authorization.getAccessToken()
-						.getAccessToken();
-				break;
-			}
-			catch (KaasServerInternalException e) {
-				times++;
-			}
-		}
-		this.apiService.setAccessToken(refreshedAccessToken);
-	}
 
 	/**
 	 * First generate GMK and then with that key generate Group call MIKEY-SAKKE
@@ -515,7 +472,6 @@ public class Client {
 			String initiatorKmsMcpttId) throws Exception {
 		log.info("Creating Clietn To Server MIKEY-SAKKE I_MESSAGE ...");
 
-		// todo ?? see E.4
 		PolicyParam[] policyParams = SRTPDefaultProfile.getPrivateCallPolicyParams();
 
 		MikeySakkeIMessage iMessage = createMikeySakkeIMessage(targetMcpttId,

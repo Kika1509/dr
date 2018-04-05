@@ -98,7 +98,7 @@ public class ClientUnitTest implements WithBDDMockito {
 		// keys from xml are overwritten, this is just because instantiating the client
 		when(apiService.initialize()).thenReturn(this.marshallerService
 				.unmarshalKmsResponseType(getXmlData("/xml/KMSInitExample.xml")));
-		when(apiService.keyProvision(null, null)).thenReturn(this.marshallerService
+		when(apiService.keyProvision()).thenReturn(this.marshallerService
 				.unmarshalKmsResponseType(getXmlData("/xml/KMSKeyProvExample.xml")));
 
 		this.initClient = new Client(INIT_MCPTT_ID, this.apiService);
