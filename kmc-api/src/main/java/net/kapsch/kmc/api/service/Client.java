@@ -15,6 +15,7 @@ import javax.crypto.SecretKey;
 import javax.xml.bind.JAXBException;
 import javax.xml.stream.XMLStreamException;
 
+import net.kapsch.kmc.api.service.exceptions.KmsServerInternalException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
@@ -470,7 +471,7 @@ public class Client {
 	public MikeySakkeIMessage generateClientToServerMikeyMessage(byte[] encapsulatedCSK,
 			int cskId, String targetMcpttId, String targetKmsMcpttId,
 			String initiatorKmsMcpttId) throws Exception {
-		log.info("Creating Clietn To Server MIKEY-SAKKE I_MESSAGE ...");
+		log.info("Creating Client To Server MIKEY-SAKKE I_MESSAGE ...");
 
 		PolicyParam[] policyParams = SRTPDefaultProfile.getPrivateCallPolicyParams();
 

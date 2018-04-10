@@ -3,7 +3,7 @@ package net.kapsch.kmc.api.service;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.time.ZoneOffset;
+import java.util.Objects;
 
 import javax.xml.bind.JAXBException;
 import javax.xml.stream.XMLStreamException;
@@ -15,20 +15,12 @@ import net.kapsch.kms.api.MarshallerService;
 
 
 public class ApiService {
-
-	public final static ZoneOffset DEFAULT_TIMEZONE = ZoneOffset.ofHours(0);
-	static final String CONTENT_TYPE_HEADER = "Content-Type";
-	static final String CONTENT_TYPE_HEADER_VALUE = "text/xml";
 	private static final String TEST_3_INITIALIZE_PATH = "/home/kristina/Desktop/test3init.xml";
 	private static final String TEST_3_KEY_PROVISION_PATH = "/home/kristina/Desktop/test3keyprov.xml";
 	private static final String TEST_4_INITIALIZE_PATH = "/home/kristina/Desktop/test4init.xml";
 	private static final String TEST_4_KEY_PROVISION_PATH = "/home/kristina/Desktop/test4keyprov.xml";
 	public static final String TEST3_ACCESS_TOKEN = "eyJraWQiOiJXeGplT3lZV2pwTXZUS3lTZTJvNlRnV01vM0lhalJWWXUyR2YxaVR5ZkpZIiwiYWxnIjoiUlMyNTYifQ.eyJtY3B0dF9pZCI6InRlc3QzQGV4YW1wbGUub3JnIiwic3ViIjoiYWRtaW4iLCJhdWQiOlsiaHR0cDpcL1wvbG9jYWxob3N0OjUyMjdcL2thYXMiLCJwdHQiLCJrbSIsImNtIiwiZ20iXSwic2NwIjpbIm9wZW5pZCIsIjNncHA6bWNwdHQ6cHR0X3NlcnZlciIsIjNncHA6bWNwdHQ6a2V5X21hbmFnZW1lbnRfc2VydmVyIiwiM2dwcDptY3B0dDpjb25maWdfbWFuYWdlbWVudF9zZXJ2ZXIiLCIzZ3BwOm1jcHR0Omdyb3VwX21hbmFnZW1lbnRfc2VydmVyIl0sIm5iZiI6MTUxMTI3MTk1NywiaXNzIjoiaHR0cDpcL1wvbG9jYWxob3N0OjUyMjdcL2thYXMiLCJleHAiOjE4MjY2MzE5NTcsImlhdCI6MTUxMTI3MTk1NywianRpIjoiMjQzMzA4ZWItNWZjNi00MWM0LWJmNDItNDNmZTNjMjM0OTBkIiwiY2lkIjoiZGUyYmNmZjItNzQxZi00NTE0LThiMDEtMDcxOTg3NjU5ZjNlIn0.Ei9sZL3PwsNCpWg8CockTE3XL50FeMk5sSthnHQHcIQvMEp16aVKcIwrlhGRtzZht3DNRIifkw6SRataPRhOdOGO4mxLZJs0jry7QQfYlmPRxc1paBqTeTjT3C-mK86j9YspdsRtmo6P4eAhr4VXnrySUemd7udRtCe_82cjNbWSLyuOVg4CwGfr8eh20nxU0wAjJShXDFj_BU6fUaLfrGg4U4wQ3aw04QHRjiQu9pwYiDe8aTXOZ4HAqrdhFAivhzl4mB7QJQICfp7Khe80pj1SZbiCRixUM8dw34iVX6zZgE8uX-0Ozg5DobpN14DGTCq_7WATVhD1tXO-djfQ4A";
 
-
-	/**
-	 * KMS Server URL (schema + address + port)
-	 */
 	private String accessToken;
 
 	private MarshallerService marshallerService;
@@ -54,7 +46,7 @@ public class ApiService {
 	 * KMS certificate)
 	 */
 	public KmsResponseType initialize() throws IOException, JAXBException, XMLStreamException {
-		if (this.accessToken == TEST3_ACCESS_TOKEN) {
+		if (Objects.equals(this.accessToken, TEST3_ACCESS_TOKEN)) {
 			String xmlString = new String(Files.readAllBytes(Paths.get(TEST_3_INITIALIZE_PATH)));
 			return this.marshallerService
 					.unmarshalKmsResponseType(xmlString);
@@ -76,7 +68,7 @@ public class ApiService {
 	 * @return KmsResponseType object which contains appropriate user Key Sets
 	 */
 	public KmsResponseType keyProvision() throws JAXBException, XMLStreamException, IOException {
-		if (this.accessToken == TEST3_ACCESS_TOKEN) {
+		if (Objects.equals(this.accessToken, TEST3_ACCESS_TOKEN)) {
 			String xmlString = new String(Files.readAllBytes(Paths.get(TEST_3_KEY_PROVISION_PATH)));
 			return this.marshallerService
 					.unmarshalKmsResponseType(xmlString);
@@ -87,13 +79,5 @@ public class ApiService {
 					.unmarshalKmsResponseType(xmlString);
 		}
 
-	}
-
-	public void setAppConfig(AppConfig appConfig) {
-		this.appConfig = appConfig;
-	}
-
-	public AppConfig getAppConfig() {
-		return this.appConfig;
 	}
 }

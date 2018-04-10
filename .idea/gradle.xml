@@ -12,14 +12,9 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/kmc-api" />
             <option value="$PROJECT_DIR$/kms-api" />
-            <option value="$PROJECT_DIR$/kms-cli" />
-            <option value="$PROJECT_DIR$/kms-core" />
-            <option value="$PROJECT_DIR$/kms-int-test" />
-            <option value="$PROJECT_DIR$/kms-package-jar" />
-            <option value="$PROJECT_DIR$/kms-package-war" />
-            <option value="$PROJECT_DIR$/kms-package-war-wildfly" />
           </set>
         </option>
+        <option name="useAutoImport" value="true" />
       </GradleProjectSettings>
     </option>
   </component>

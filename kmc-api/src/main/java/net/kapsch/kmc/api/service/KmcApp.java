@@ -1,7 +1,6 @@
 package net.kapsch.kmc.api.service;
 
-
-public final class KmcApp {
+public class KmcApp {
 
 	public ApiService apiService;
 
@@ -9,7 +8,6 @@ public final class KmcApp {
 	}
 
 	public static void main(String[] args) throws Exception {
-
 		new CmdApi(args);
 	}
 

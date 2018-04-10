@@ -2,9 +2,4 @@ rootProject.name = 'kms'
 
 include 'kms-api'
 include 'kmc-api'
-include 'kms-core'
-include 'kms-cli'
-include 'kms-package-jar'
-include 'kms-package-war'
-include 'kms-package-war-wildfly'
-include 'kms-int-test'
+

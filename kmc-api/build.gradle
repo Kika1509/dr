@@ -6,6 +6,11 @@ apply from: '../gradle/test.gradle'
 
 apply plugin: 'application'
 
+configurations {
+    providedRuntime
+    compile.exclude module: "spring-boot-starter-tomcat"
+}
+
 javadoc {
     exclude 'org/bouncycastle/**'
 }

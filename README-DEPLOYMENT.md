@@ -9,9 +9,9 @@
 ## MariaDb DB Schema Installation
 Create DB using the defaults:
 ```mysql
-CREATE DATABASE kms DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
-CREATE USER 'kms'@'%' IDENTIFIED BY 'kms';
-GRANT ALL PRIVILEGES ON *.* TO 'kms'@'%' IDENTIFIED BY 'kms' WITH GRANT OPTION;
+CREATE DATABASE dr DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
+CREATE USER 'dr'@'%' IDENTIFIED BY 'dr';
+GRANT ALL PRIVILEGES ON *.* TO 'dr'@'%' IDENTIFIED BY 'dr' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 ```
 
@@ -35,9 +35,9 @@ See section: MariaDb DB installation
 
 System properties that are available for configuration (current default properties):
 
-    kms.spring.datasource.url=jdbc:mariadb://localhost:3306/kms?useSSL=false
-    kms.spring.datasource.username=kms
-    kms.spring.datasource.password=kms
+	spring.datasource.url=jdbc:mysql://localhost:3306/dr
+	spring.datasource.username=fer
+	spring.datasource.password=fer
 
 
 ### Artifacts for deployment

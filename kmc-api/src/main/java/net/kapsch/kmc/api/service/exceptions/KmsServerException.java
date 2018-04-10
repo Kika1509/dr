@@ -1,4 +1,4 @@
-package net.kapsch.kmc.api.service;
+package net.kapsch.kmc.api.service.exceptions;
 
 public class KmsServerException extends RuntimeException {
 	public KmsServerException(String message) {
