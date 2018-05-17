@@ -81,7 +81,10 @@ public class PayloadGeneralExtension extends Payload {
 		byte[] data = Arrays.copyOfRange(encoded, DEFAULT_IV_SIZE + 4,
 				DEFAULT_IV_SIZE + 4 + length);
 
-		return new PayloadGeneralExtension(nextPayload, iv, type, length, data);
+		PayloadGeneralExtension result = new PayloadGeneralExtension(nextPayload, iv, type, length, data);
+		result.originalBytes = encoded;
+		result.setEndByte(length + DEFAULT_IV_SIZE + 4);
+		return result;
 	}
 
 	public static int getDefaultIvSize() {

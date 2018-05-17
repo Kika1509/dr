@@ -1076,7 +1076,7 @@ public class Client {
 	public OctetString getUid(byte[] mcpttId, byte[] kmsMcpttId) {
 		String uid = MikeySakkeUid.generateUid(new String(mcpttId),
 				new String(kmsMcpttId), this.domainKeys.getUserKeyPeriod(),
-				this.domainKeys.getUserKeyOffset(), keyPeriod());
+				this.domainKeys.getUserKeyOffset(), 1542);
 		return new OctetString(uid.getBytes());
 	}
 

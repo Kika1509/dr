@@ -44,8 +44,8 @@ public class DocumentService extends BaseService {
 	public String post(String xmlBody, String mediaType) {
 		RequestBody body = RequestBody.create(MediaType.parse(mediaType), xmlBody);
 
-		return makeRequest(builder.url("/").post(body).build());
-//		return "null";//TODO: find out which path to use
+		return makeRequest(builder.url("http://localhost:8080/example").post(body).build());
+		//TODO: find out which path to use
 
 	}
 

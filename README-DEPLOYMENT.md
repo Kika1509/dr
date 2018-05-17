@@ -35,9 +35,9 @@ See section: MariaDb DB installation
 
 System properties that are available for configuration (current default properties):
 
-	spring.datasource.url=jdbc:mysql://localhost:3306/dr
-	spring.datasource.username=fer
-	spring.datasource.password=fer
+    kms.spring.datasource.url=jdbc:mariadb://localhost:3306/kms?useSSL=false
+    kms.spring.datasource.username=kms
+    kms.spring.datasource.password=kms
 
 
 ### Artifacts for deployment

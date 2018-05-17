@@ -290,7 +290,7 @@ public class PayloadHDR extends Payload {
 		str.append("\tPRF func: " + prfFunc + "\n");
 		str.append("\tCSB ID: " + csbId + "\n");
 		str.append("\t#CS: " + csNumber + "\n");
-		str.append("\t" + csIdMapInfo.toString());
+		str.append("\t" + csIdMapInfo);
 
 		return str.toString();
 	}

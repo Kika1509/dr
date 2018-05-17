@@ -78,7 +78,7 @@ public class MikeySakkeIMessage {
 				}
 			}
 			catch (NullPointerException e) {
-				throw new MikeyException(str.toString());
+				throw new MikeyException(str.toString(), e);
 			}
 		}
 		return iMessage;
@@ -96,7 +96,9 @@ public class MikeySakkeIMessage {
 		case NextPayload.ERR:
 			throw new MikeyException("ERR Payloads not yet supported.");
 		case NextPayload.GENERAL_EXT:
-			throw new MikeyException("GENERAL_EXT Payloads not yet supported.");
+			payload = PayloadGeneralExtension.decode(bytes);
+//			throw new MikeyException("GENERAL_EXT Payloads not yet supported.");
+			break;
 		case NextPayload.ID:
 			throw new MikeyException("ID Payloads not yet supported.");
 		case NextPayload.KEMAC:

@@ -14,6 +14,6 @@ public class MikeyException extends Exception {
 	}
 
 	public MikeyException(String arg0, Throwable e) {
-		super(arg0 + e.getMessage());
+		super(arg0, e);
 	}
 }

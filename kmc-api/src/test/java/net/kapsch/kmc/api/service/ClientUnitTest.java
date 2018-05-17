@@ -13,6 +13,13 @@ import com.google.common.io.ByteStreams;
 
 import info.solidsoft.mockito.java8.api.WithBDDMockito;
 
+import net.kapsch.kmc.api.service.mikey.MikeyException;
+import net.kapsch.kmc.api.service.mikey.MikeySakkeIMessage;
+import net.kapsch.kmc.api.service.mikey.PayloadSAKKE;
+import net.kapsch.kmc.api.service.mikey.PolicyParam;
+import net.kapsch.kmc.api.service.mikey.tables.IDRole;
+import net.kapsch.kmc.api.service.mikey.tables.NextPayload;
+import net.kapsch.kmc.api.service.mikey.tables.SRTPDefaultProfile;
 import org.bouncycastle.util.encoders.Hex;
 import org.json.JSONException;
 import org.junit.Assert;
@@ -22,13 +29,7 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import net.kapsch.kmc.api.service.mikey.MikeyException;
-import net.kapsch.kmc.api.service.mikey.MikeySakkeIMessage;
-import net.kapsch.kmc.api.service.mikey.PayloadSAKKE;
-import net.kapsch.kmc.api.service.mikey.PolicyParam;
-import net.kapsch.kmc.api.service.mikey.tables.IDRole;
-import net.kapsch.kmc.api.service.mikey.tables.NextPayload;
-import net.kapsch.kmc.api.service.mikey.tables.SRTPDefaultProfile;
+
 import net.kapsch.kms.api.DefaultMarshallerService;
 import net.kapsch.kms.api.MarshallerService;
 import net.kapsch.kms.api.mikeysakke.PurposeTag;
@@ -50,7 +51,7 @@ public class ClientUnitTest implements WithBDDMockito {
 
 	private final static int KEY_PERIOD_OFFSET = 0;
 
-	private final static int CURRENT_KEY_PERIOD_NO = 1541;
+	private final static int CURRENT_KEY_PERIOD_NO = 1542;
 
 	private final static OctetString KPAK = OctetString.fromHex(
 			"042CFB4C1003B36E2F7B211E9BC28CEBE2B41A0CCD4EBEA6F4EA2A4EFFD4D7144204972AECF92453255AC6E1ABEB21852F100C88EF87803F93F5A210A01000322B");
