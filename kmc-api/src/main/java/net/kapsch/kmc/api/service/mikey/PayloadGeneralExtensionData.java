@@ -121,9 +121,9 @@ public class PayloadGeneralExtensionData {
 		else {
 			int paddingLenght = getPaddingLenght(multiple, length);
 
-			SecureRandom random = new SecureRandom();
+			//SecureRandom random = new SecureRandom();
 			byte[] randBytes = new byte[paddingLenght];
-			random.nextBytes(randBytes);
+			//random.nextBytes(randBytes);
 
 			return randBytes;
 		}

@@ -12,20 +12,19 @@ import javax.xml.stream.XMLStreamException;
 import net.kapsch.kmc.api.service.ApiService;
 import net.kapsch.kmc.api.service.Client;
 import net.kapsch.kmc.api.service.GroupCallRequest;
-import net.kapsch.kmc.api.service.mikey.MikeyException;
 import net.kapsch.kmc.api.service.mikey.MikeySakkeIMessage;
 import org.bouncycastle.util.Arrays;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 
-public class UdpServer4 implements Runnable {
-	final static Logger logger = LoggerFactory.getLogger(UdpServer4.class);
-	public static final String TEST4_ACCESS_TOKEN = "";
-	private final static String MCPTT_GROUP_ID_4 = "test4@example.org";
+public class UdpServer3 implements Runnable {
+	final static Logger logger = LoggerFactory.getLogger(UdpServer3.class);
+	public static final String TEST3_ACCESS_TOKEN = "eyJraWQiOiJXeGplT3lZV2pwTXZUS3lTZTJvNlRnV01vM0lhalJWWXUyR2YxaVR5ZkpZIiwiYWxnIjoiUlMyNTYifQ.eyJtY3B0dF9pZCI6InRlc3QzQGV4YW1wbGUub3JnIiwic3ViIjoiYWRtaW4iLCJhdWQiOlsiaHR0cDpcL1wvbG9jYWxob3N0OjUyMjdcL2thYXMiLCJwdHQiLCJrbSIsImNtIiwiZ20iXSwic2NwIjpbIm9wZW5pZCIsIjNncHA6bWNwdHQ6cHR0X3NlcnZlciIsIjNncHA6bWNwdHQ6a2V5X21hbmFnZW1lbnRfc2VydmVyIiwiM2dwcDptY3B0dDpjb25maWdfbWFuYWdlbWVudF9zZXJ2ZXIiLCIzZ3BwOm1jcHR0Omdyb3VwX21hbmFnZW1lbnRfc2VydmVyIl0sIm5iZiI6MTUxMTI3MTk1NywiaXNzIjoiaHR0cDpcL1wvbG9jYWxob3N0OjUyMjdcL2thYXMiLCJleHAiOjE4MjY2MzE5NTcsImlhdCI6MTUxMTI3MTk1NywianRpIjoiMjQzMzA4ZWItNWZjNi00MWM0LWJmNDItNDNmZTNjMjM0OTBkIiwiY2lkIjoiZGUyYmNmZjItNzQxZi00NTE0LThiMDEtMDcxOTg3NjU5ZjNlIn0.Ei9sZL3PwsNCpWg8CockTE3XL50FeMk5sSthnHQHcIQvMEp16aVKcIwrlhGRtzZht3DNRIifkw6SRataPRhOdOGO4mxLZJs0jry7QQfYlmPRxc1paBqTeTjT3C-mK86j9YspdsRtmo6P4eAhr4VXnrySUemd7udRtCe_82cjNbWSLyuOVg4CwGfr8eh20nxU0wAjJShXDFj_BU6fUaLfrGg4U4wQ3aw04QHRjiQu9pwYiDe8aTXOZ4HAqrdhFAivhzl4mB7QJQICfp7Khe80pj1SZbiCRixUM8dw34iVX6zZgE8uX-0Ozg5DobpN14DGTCq_7WATVhD1tXO-djfQ4A";
+	private final static String MCPTT_GROUP_ID_3 = "test3@example.org";
 
-	private ApiService apiService = new ApiService(TEST4_ACCESS_TOKEN);
-	private Client client = new Client(MCPTT_GROUP_ID_4, apiService);
+	private ApiService apiService = new ApiService(TEST3_ACCESS_TOKEN);
+	private Client client = new Client(MCPTT_GROUP_ID_3, apiService);
 
 	private DatagramSocket serverSocket;
 
@@ -35,8 +34,8 @@ public class UdpServer4 implements Runnable {
 	/*
 	 * Instantiate serverSocket
 	 */
-	public UdpServer4() throws SocketException{
-		serverSocket = new DatagramSocket(20000);
+	public UdpServer3() throws SocketException{
+		serverSocket = new DatagramSocket(10000);
 	}
 
 	public void run() {
