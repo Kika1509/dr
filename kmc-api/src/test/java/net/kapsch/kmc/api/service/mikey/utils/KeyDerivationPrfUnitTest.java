@@ -8,7 +8,6 @@ import org.bouncycastle.util.encoders.Hex;
 import org.junit.Assert;
 import org.junit.Test;
 
-import net.kapsch.kmc.api.service.SrtpKeys;
 import net.kapsch.kms.api.mikeysakke.utils.OctetString;
 
 public class KeyDerivationPrfUnitTest {

@@ -6,7 +6,6 @@ import java.security.NoSuchAlgorithmException;
 
 import javax.crypto.SecretKey;
 
-import net.kapsch.kmc.api.service.SrtpKeys;
 import net.kapsch.kms.api.encryption.aes.Aes;
 import net.kapsch.kms.api.mikeysakke.utils.OctetString;
 import net.kapsch.kms.api.util.Utils;
@@ -32,22 +31,6 @@ public final class KeyDerivationPrf {
 	private KeyDerivationPrf() {
 	}
 
-	public static SrtpKeys derivationMasterAndSaltKey(byte[] key, byte[] rand, int keyId,
-			int csId, int mki)
-			throws NoSuchAlgorithmException, IOException, InvalidKeyException {
-		byte[] labelTEK = Utils.concatenateByteArrays(
-				OctetString.hexStringToByteArray(TEK_CONSTANT), Utils.intToBytes(csId),
-				Utils.intToBytes(keyId), rand);
-		byte[] labelSalt = Utils.concatenateByteArrays(
-				OctetString.hexStringToByteArray(SALTING_KEY_CONSTANT),
-				Utils.intToBytes(csId), Utils.intToBytes(keyId), rand);
-		byte[] srtpMaster = prfGenerateKeys(key, key.length, labelTEK,
-				HALF_INPUT_BLOCK_SIZE);
-		byte[] srtpSalt = prfGenerateKeys(key, key.length, labelSalt,
-				HALF_INPUT_BLOCK_SIZE);
-
-		return new SrtpKeys(srtpMaster, srtpSalt, mki);
-	}
 
 	public static byte[] prfGenerateKeys(byte[] tgk, int tgkLen, byte[] label,
 			int outKeyLen)
