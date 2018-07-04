@@ -34,6 +34,7 @@ public class UdpClient4 implements Runnable {
 
 	private byte[] outData;
 	private byte[] inData;
+	private byte[] emptyArray;
 	private final static String TARGET_MCPTT_ID_3 = "test3@example.org";
 	private final static String KMS_URI = "kms.example.org";
 	private final static String MCPTT_GROUP_ID_4 = "test4@example.org";
@@ -76,12 +77,8 @@ public class UdpClient4 implements Runnable {
 				inData = new byte[1024];
 				//outData = new byte[1024];
 				DomainKeyData domainKeys = this.client.getDomainKeys();
-				/*
-				 * Generate key
-				 */
-				EncryptionService encryptionService = new EncryptionService();
-				String secretKeys = encryptionService.generateKey();
-				System.out.println(secretKeys);
+				emptyArray = new byte[2];
+
 				String next = inFromUser.readLine();
 
 				/*
@@ -95,7 +92,7 @@ public class UdpClient4 implements Runnable {
 						domainKeys.getKmsPublicKey(), new RandomGeneratorImpl());
 				MikeySakkeIMessage iMessage = this.client.generateGroupCallMikeyMessage(gmk.getOctets(),
 						gmkId, gmkEncData, TARGET_MCPTT_ID_3, KMS_URI, KMS_URI,
-						MCPTT_GROUP_ID_4.getBytes(), ACTIVATION_TIME.getBytes(), secretKeys.getBytes());
+						MCPTT_GROUP_ID_4.getBytes(), ACTIVATION_TIME.getBytes(), emptyArray);
 				outData = iMessage.getEncoded();
 
 				DatagramPacket out = new DatagramPacket(outData, outData.length, IPAddress, 10000);

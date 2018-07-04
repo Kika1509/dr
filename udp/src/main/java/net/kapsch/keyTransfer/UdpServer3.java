@@ -70,7 +70,7 @@ public class UdpServer3 implements Runnable {
 				MikeySakkeIMessage iMessage = MikeySakkeIMessage.decode(cropped);
 
 				GroupCallRequest decrypted = this.client.processGroupKeyTransportMessage(iMessage);
-				String text = new String(decrypted.getText());
+				String text = decrypted.getKeyPair().toString();
 
 				out = text.toUpperCase().getBytes();
 				System.out.println("String Received: " + text.trim());
